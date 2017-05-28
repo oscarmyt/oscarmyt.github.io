@@ -7,6 +7,22 @@
 <html>
 	<head>
 		<title>Big Picture by HTML5 UP</title>
+
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+		<script>
+		jQuery(document).ready(function($) {
+		  $.ajax({
+		  url : "http://api.wunderground.com/api/e45ce3b52f14fffb/geolookup/q/07632.json",
+		  dataType : "jsonp",
+		  success : function(parsed_json) {
+		  var location = parsed_json['location']['city'];
+		  var temp_f = parsed_json['current_observation']['temp_f'];
+		  alert("Current temperature in " + location + " is: " + temp_f);
+		  }
+		  });
+		});
+		</script>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -35,14 +51,6 @@
 			</header>
 
 		<!-- Intro -->
-    <center>
-			<div style="position: relative">
-<center><h1 class="animated zoomIn">Tomorrow Lab</h1></center>
-
-		<video playsinline autoplay muted loop poster="polina.jpg" id="bgvid">
-		    <source src="video.mp4" type="video/mp4">
-		</video>
-	</center>
 
 
 	</body>
